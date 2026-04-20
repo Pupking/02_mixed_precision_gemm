@@ -16,6 +16,7 @@
 
 // Forward decls from each variant TU.
 void wmma_naive_launch(const MpGemmParams& p);
+void wmma_shared_launch(const MpGemmParams& p);
 
 namespace {
 
@@ -93,7 +94,8 @@ int main(int argc, char** argv) {
 
     // Registry (insertion order = story order).
     KernelRegistry<MpGemmLaunch> registry;
-    registry.emplace_back("wmma_naive", wmma_naive_launch);
+    registry.emplace_back("wmma_naive",  wmma_naive_launch);
+    registry.emplace_back("wmma_shared", wmma_shared_launch);
 
     // Audit §L1.1.1: tol=1.0 is too loose; atol+rtol at FP16-scale margins.
     const float atol = 0.5f;
