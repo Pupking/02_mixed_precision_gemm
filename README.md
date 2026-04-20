@@ -8,14 +8,6 @@ verify harness from Layer 0 is reused; the reference is cuBLAS
 Tensor-Core kernel on sm_86). Reproducible from the `.ncu-rep` files
 in this repo.
 
-Per-kernel profile details: **[docs/02_mixed_precision_gemm.md](../../docs/02_mixed_precision_gemm.md)**.
-
-## Deep Dive Contents
-
-- WMMA fragment model and why a naive implementation underutilises the HMMA pipe.
-- SMEM staging as the lever that converts K-stride DRAM reads into reused tile loads.
-- Double-buffered cp.async pipeline and the long-scoreboard stall it eliminates.
-- The remaining gap to cuBLAS/CUTLASS and where it comes from.
 
 ## Results
 
