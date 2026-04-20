@@ -2,6 +2,7 @@ add_executable(mp_gemm_bench
     main.cu
     00_wmma_naive.cu
     01_wmma_shared.cu
+    02_wmma_cp_async.cu
 )
 
 target_link_libraries(mp_gemm_bench PRIVATE portfolio_common)
